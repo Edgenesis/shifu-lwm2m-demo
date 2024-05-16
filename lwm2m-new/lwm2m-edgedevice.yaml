@@ -1,0 +1,30 @@
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-lwm2m1
+  namespace: devices
+spec:
+  sku: "LwM2M Device"
+  connection: Ethernet
+  address: --
+  protocol: LwM2M
+  protocolSettings:
+    LwM2MSettings:
+      endpointName: test
+      securityMode: DTLS
+      dtlsMode: PSK
+      cipherSuites: 
+        - TLS_PSK_WITH_AES_128_CCM_8
+      pskIdentity: hint
+      pskKey: ABC123
+  gatewaySettings:
+    protocol: lwm2m
+    address: 20.64.232.107:5683
+    LwM2MSettings:
+      endpointName: lwm2m1-device
+      securityMode: None
+      dtlsMode: PSK
+      cipherSuites: 
+        - TLS_PSK_WITH_AES_128_CCM_8
+      pskIdentity: lwm2m-hint
+      pskKey: ABC123

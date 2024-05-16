@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mqtt-configmap-0.0.1
+  namespace: deviceshifu
+data:
+  driverProperties: |
+    driverSku: testMQTT
+    driverImage: 
+  instructions: |
+    instructions:
+      channel1:
+        protocolPropertyList:
+          MQTTTopic: "/topic/channel1"
+        gatewayPropertyList:
+          ObjectId: /3442/0/110
+          DataType: float
+      channel2:
+        protocolPropertyList:
+          MQTTTopic: "/topic/channel2"
+        gatewayPropertyList:
+          ObjectId: /3442/0/130
+          DataType: float
+  telemetries: |
+    telemetries:
+      device_health:
+        properties:

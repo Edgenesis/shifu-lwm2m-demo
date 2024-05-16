@@ -1,0 +1,23 @@
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-mqtt
+  namespace: devices
+spec:
+  sku: "testMQTT" 
+  connection: Ethernet
+  address: mosquitto-service.devices.svc.cluster.local:18830
+  protocol: MQTT
+  protocolSettings:
+    MQTTSetting:
+  gatewaySettings:
+    protocol: lwm2m
+    address: 20.64.232.107:5684
+    LwM2MSettings:
+      endpointName: mqtt-device
+      securityMode: DTLS
+      dtlsMode: PSK
+      cipherSuites: 
+        - TLS_PSK_WITH_AES_128_CCM_8
+      pskIdentity: mqtt-hint
+      pskKey: 123ABC

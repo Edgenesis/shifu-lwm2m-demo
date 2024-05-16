@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mock-http-thermometer
+  namespace: devices
+spec:
+  selector:
+    matchLabels:
+      app: mock-http-thermometer
+  template:
+    metadata:
+      labels:
+        app: mock-http-thermometer
+    spec:
+      containers:
+      - image: edgehub/mockdevice-thermometer:nightly
+        name: thermometer
+        ports:
+        - containerPort: 11111
+        env:
+        - name: MOCKDEVICE_NAME
+          value: thermometer
+        - name: MOCKDEVICE_PORT
+          value: "11111"

@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deviceshifu-lwm2m
+  namespace: deviceshifu
+data:
+#    device name and image address
+  driverProperties: |
+    driverSku: LwM2M Device
+    driverImage: lwm2m-device:v0.0.1
+#    available instructions
+  instructions: |
+    instructions:
+      float:
+        protocolPropertyList:
+          ObjectId: /3442/0/130
+          EnableObserve: false
+        gatewayPropertyList:
+          ObjectId: /3442/0/130
+          DataType: float
+      string:
+        protocolPropertyList:
+          ObjectId: /3442/0/110
+          EnableObserve: false
+        gatewayPropertyList:
+          ObjectId: /3442/0/110
+          DataType: string
+      integer:
+        protocolPropertyList:
+          ObjectId: /3442/0/120
+          EnableObserve: false
+        gatewayPropertyList:
+          ObjectId: /3442/0/120
+          DataType: int
+      boolean:
+        protocolPropertyList:
+          ObjectId: /3442/0/140
+          EnableObserve: false
+        gatewayPropertyList:
+          ObjectId: /3442/0/140
+          DataType: bool
