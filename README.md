@@ -2,6 +2,25 @@
 
 This project provides a comprehensive demonstration of the Shifu LwM2M framework, showcasing the deployment and management of lightweight machine-to-machine (LwM2M) devices within a Kubernetes environment using k3s. The demo includes setting up LeShan mock clients and servers, creating and joining a k3s cluster, installing Shifu, and deploying various types of devices (LwM2M, HTTP, and MQTT) to interact with the server. This guide will walk you through each step to successfully run the demo.
 
+## Results Show 
+
+All devices are connected to the lwm2m server.
+
+![devices in lwm2m server](./images/leshan-server-demo.png)
+
+
+Can operate the devices in the lwm2m server.
+
+![read data from lwm2m server](./images/leshan-server-demo-read.png)
+
+
+## Hardware and Software Requirements
+
+Demo was tested on the following configuration:
+- Raspberry Pi 4B (4GB RAM) with Raspberry Pi OS (64-bit)
+- K3s v1.29.4+k3s1
+- Docker v26.0.0
+
 ## Preparation
 
 ### Building LeShan Mock Client and Server
@@ -14,6 +33,17 @@ docker build -t leshan-client -f leshan/dockerfiles/client.dockerfile leshan
 ```
 
 These commands will create Docker images for the LeShan server and client based on the configurations specified in their respective Dockerfiles.
+
+### Build Shifu docker images and import to k3s
+
+We need to build the Shifu docker images and import them to the k3s cluster. This can be done using the following command:
+```bash
+make build-docker-images
+# Then save the images to tar files
+make save-docker-images
+# (OPTIONAL) Transfer the tar files to the target machine
+scp -r images <username>@<target-ip>:<target dir>
+```
 
 ## Running LeShan Mock Server
 
@@ -34,6 +64,12 @@ curl -sfL https://get.k3s.io | sh -
 ```
 
 This command downloads and installs k3s on your system.
+
+After create the k3s cluster, we need to load the shifu's docker image to the k3s cluster. This can be done using the following command:
+
+```bash
+make ctr-load-docker-images
+```
 
 ## Installing Shifu
 
