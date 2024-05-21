@@ -1,3 +1,6 @@
 [submodule "shifu"]
 	path = shifu
 	url = https://github.com/Edgenesis/shifu.git
+[submodule "leshan"]
+	path = leshan
+	url = https://github.com/rhoninl/leshan
