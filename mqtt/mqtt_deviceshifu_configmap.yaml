@@ -14,14 +14,9 @@ data:
           MQTTTopic: "/topic/channel1"
         gatewayPropertyList:
           ObjectId: /3442/0/110
-          DataType: float
-      channel2:
-        protocolPropertyList:
-          MQTTTopic: "/topic/channel2"
-        gatewayPropertyList:
-          ObjectId: /3442/0/130
-          DataType: float
+          DataType: string
   telemetries: |
     telemetries:
       device_health:
         properties:
+

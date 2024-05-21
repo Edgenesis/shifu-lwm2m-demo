@@ -51,3 +51,4 @@ spec:
         configMap:
           name: mqtt-configmap-0.0.1
       serviceAccountName: edgedevice-sa
+

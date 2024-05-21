@@ -13,3 +13,4 @@ spec:
   selector:
     app: mock-http-thermometer
   type: LoadBalancer
+
