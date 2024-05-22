@@ -8,6 +8,9 @@ All devices are connected to the LwM2M server.
 
 ![devices in LwM2M server](./images/leshan-server-demo.png)
 
+In LeShan server, we need to create a security object for each device, otherwise the device will connect to the server without security.
+
+![security information in LwM2M server](./images/leshan-server-demo-security.png)
 
 Can operate the devices in the LwM2M server.
 
