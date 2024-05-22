@@ -108,6 +108,22 @@ Replace `<master-node-ip>` with the IP address of your master node and `<TOKEN>`
 
 #### Connecting LwM2M Device
 
+Edit the `lwm2m/lwm2m-edgedevice.yaml` file and set it to the coap/coaps listening address of the LwM2M server:
+```yaml
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-lwm2m
+  namespace: devices
+spec:
+  sku: "LwM2M Device"
+  ...
+  gatewaySettings:
+    protocol: lwm2m
+    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    ...
+```
+
 To deploy and connect an LwM2M device, apply the configuration file using kubectl:
 
 ```bash
@@ -146,6 +162,23 @@ This command deploys the mock HTTP device, which simulates HTTP interactions wit
 
 #### Creating HTTP Device Shifu and Connecting to Server
 
+Edit the `http/deviceshifu/http-edgedevice.yaml` file and set it to the coap/coaps listening address of the LwM2M server:
+
+```yaml
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-thermometer
+  namespace: devices
+spec:
+  ...
+  gatewaySettings:
+    protocol: lwm2m
+    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    ...
+```
+
+
 Next, deploy the Shifu HTTP device and connect it to the server:
 
 ```bash
@@ -176,6 +209,22 @@ kubectl apply -f mqtt/mockdevice
 
 #### Creating MQTT Device Shifu and Connecting to Server
 
+Edit the `mqtt/deviceshifu/mqtt_edgedevice.yaml` file and set it to the coap/coaps listening address of the LwM2M server:
+
+```yaml
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-mqtt
+  namespace: devices
+spec:
+  ...
+  gatewaySettings:
+    protocol: lwm2m
+    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    ...
+```
+
 Next, deploy the Shifu MQTT and connect it to the server:
 
 ```bash
@@ -189,7 +238,7 @@ This command configures the Mosquitto with Shifu, enabling it to communicate wit
 Publish a message to the MQTT device using the following command:
 
 ```bash
-kubectl exec -it deploy/mosquitto -n devices mosquitto_pub -t "/topic/channel1" -m Hello, World
+kubectl exec -it deploy/mosquitto -n devices -- mosquitto_pub -t "/topic/channel1" -m Hello, World
 ```
 
 #### Disconnecting MQTT Device

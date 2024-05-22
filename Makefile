@@ -18,7 +18,7 @@ kind-load-docker-images:
 	kind load docker-image edgehub/gateway-lwm2m:nightly
 
 ctr-load-docker-images:
-	sudo ctr images import images/edgehub-deviceshifu-http-http-nightly.tar
-	sudo ctr images import images/edgehub-deviceshifu-http-mqtt-nightly.tar
-	sudo ctr images import images/edgehub-deviceshifu-http-lwm2m-nightly.tar
-	sudo ctr images import images/edgehub-gateway-lwm2m-nightly.tar
+	sudo k3s ctr images import images/edgehub-deviceshifu-http-http-nightly.tar
+	sudo k3s ctr images import images/edgehub-deviceshifu-http-mqtt-nightly.tar
+	sudo k3s ctr images import images/edgehub-deviceshifu-http-lwm2m-nightly.tar
+	sudo k3s ctr images import images/edgehub-gateway-lwm2m-nightly.tar
