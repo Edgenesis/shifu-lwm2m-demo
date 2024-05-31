@@ -16,7 +16,7 @@ spec:
         app: deviceshifu-mqtt-deployment
     spec:
       containers:
-      - image: edgehub/deviceshifu-http-mqtt:nightly
+      - image: edgenesis/lwm2m-demo-deviceshifu-http-mqtt:nightly
         name: deviceshifu-http
         ports:
         - containerPort: 8080
@@ -35,7 +35,7 @@ spec:
             port: 8080
           initialDelaySeconds: 10
           periodSeconds: 10
-      - image: edgehub/gateway-lwm2m:nightly
+      - image: edgenesis/lwm2m-demo-gateway-lwm2m:nightly
         name: gateway-lwm2m
         volumeMounts:
           - name: deviceshifu-config

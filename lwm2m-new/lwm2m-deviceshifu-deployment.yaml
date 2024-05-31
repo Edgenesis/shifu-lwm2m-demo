@@ -16,7 +16,7 @@ spec:
         app: deviceshifu-lwm2m1-deployment
     spec:
       containers:
-        - image: edgehub/deviceshifu-http-lwm2m:nightly
+        - image: edgenesis/lwm2m-demo-deviceshifu-http-lwm2m:nightly
           name: deviceshifu-lwm2m
           ports:
             - containerPort: 8080
@@ -31,7 +31,7 @@ spec:
               value: "devices"
             - name: LOG_LEVEL
               value: debug
-        - image: edgehub/gateway-lwm2m:nightly
+        - image: edgenesis/lwm2m-demo-gateway-lwm2m:nightly
           name: gateway-lwm2m
           volumeMounts:
             - name: deviceshifu-config

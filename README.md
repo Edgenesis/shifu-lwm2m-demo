@@ -34,51 +34,23 @@ Demo tested on:
 git clone --recurse-submodules https://github.com/Edgenesis/shifu-lwm2m-demo.git
 ```
 
-### Build LeShan Mock Server and Client
-
-[LeShan](https://github.com/eclipse-leshan/leshan) is an open-source implementation of the OMA Lightweight M2M protocol (LwM2M). To build the LeShan server and client Docker images, use:
-
-```bash
-cd shifu-lwm2m-demo
-docker build -t leshan-server -f leshan/dockerfiles/server.dockerfile leshan
-docker build -t leshan-client -f leshan/dockerfiles/client.dockerfile leshan
-```
-
 ### Run LeShan Mock Server
 
 Start the LeShan mock server as LwM2M Server in Cloud.
 
 ```bash
-docker run --name leshan-server -d -p 5683:5683/udp -p 5684:5684/udp -p 8080:8080/tcp leshan-server
+docker run --name edgenesis/lwm2m-demo-leshan-server:nightly -d -p 5683:5683/udp -p 5684:5684/udp -p 8080:8080/tcp leshan-server
 ```
 
 This command runs the LeShan server in detached mode, with ports 5683 and 5684 for CoAP and CoAPs communication and port 8080 for HTTP access.
 
-### Build Shifu Docker Images and Install k3s
 
-#### Build the Shifu docker images and import them to a k3s cluster.
-```bash
-make build-docker-images
-# Then save the images to tar files
-make save-docker-images
-# (OPTIONAL) Transfer the tar files to the target machine
-scp -r images <username>@<target-ip>:<target dir>
-```
-
-
-#### Create a K3s Cluster
+### Create a K3s Cluster
 
 [k3s](https://k3s.io/) is a lightweight Kubernetes distribution ideal for edge computing and IoT environments. We can create a K3s cluster by running the following command:
 
 ```bash
 curl -sfL https://get.k3s.io | sh -
-```
-
-
-Load shifu's docker image into K3s cluster. 
-
-```bash
-make ctr-load-docker-images
 ```
 
 ### Install Shifu
@@ -130,7 +102,7 @@ kubectl apply -f lwm2m
 #### Start the LwM2M mock device (LeShan Client):
 
 ```bash
-docker run --rm -it leshan-client bash
+docker run --rm -it edgenesis/lwm2m-demo-leshan-client:nightly bash
 
 java -jar leshan-client-demo-2.0.0-SNAPSHOT-jar-with-dependencies.jar -u coaps://<ip>:30001 -n test -i hint -p ABC123 -c TLS_PSK_WITH_AES_128_CCM_8
 ```
