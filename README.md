@@ -198,7 +198,7 @@ kubectl apply -f mqtt/deviceshifu
 Publish a message to the mock MQTT device using the following command:
 
 ```bash
-kubectl exec -it deploy/mosquitto -n devices -- mosquitto_pub -t "/topic/channel1" -m Hello, World
+kubectl exec -it deploy/mosquitto -n devices -- mosquitto_pub -t "/topic/channel1" -m 'Hello, World'
 ```
 
 #### Remove MQTT Device
