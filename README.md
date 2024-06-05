@@ -106,7 +106,7 @@ docker run --rm -it edgenesis/lwm2m-demo-leshan-client:nightly bash
 
 java -jar leshan-client-demo-2.0.0-SNAPSHOT-jar-with-dependencies.jar -u coaps://<ip>:30001 -n test -i hint -p ABC123 -c TLS_PSK_WITH_AES_128_CCM_8
 ```
-Replace `<ip>` with the IP address of your server.
+Replace `<ip>` with the IP address of your **local** server (you can get this from `ip addr` in Linux).
 
 #### Remove LwM2M Device
 
