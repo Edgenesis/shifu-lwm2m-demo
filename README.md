@@ -42,7 +42,7 @@ git clone --recurse-submodules https://github.com/Edgenesis/shifu-lwm2m-demo.git
 Start the LeShan mock server as LwM2M Server in Cloud.
 
 ```bash
-docker run --name edgenesis/lwm2m-demo-leshan-server:nightly -d -p 5683:5683/udp -p 5684:5684/udp -p 8080:8080/tcp leshan-server
+docker run --name leshan-server -d -p 5683:5683/udp -p 5684:5684/udp -p 8080:8080/tcp edgenesis/lwm2m-demo-leshan-server:nightly
 ```
 
 This command runs the LeShan server in detached mode, with ports 5683 and 5684 for CoAP and CoAPs communication and port 8080 for HTTP access.
