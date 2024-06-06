@@ -2,6 +2,9 @@
 
 This demo showcases the integration of mock LwM2M protocol devices with Shifu, alongside devices using HTTP and MQTT protocols. Shifu communicates with the LeShan server via the LwM2M protocol, demonstrating seamless device management and interaction.
 
+## Video Walkthrough (Click to Play)
+
+[![Shifu LwM2M Demo](https://img.youtube.com/vi/EZR9tPs1PzE/maxresdefault.jpg)](https://www.youtube.com/watch?v=EZR9tPs1PzE)
 
 ## Demo Result 
 
