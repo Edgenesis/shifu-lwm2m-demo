@@ -1,10 +1,10 @@
 apiVersion: shifu.edgenesis.io/v1alpha1
 kind: EdgeDevice
 metadata:
-  name: edgedevice-lwm2m
+  name: edgedevice-mqtt-customized
   namespace: devices
 spec:
-  sku: "LwM2M Device"
+  sku: "MQTT Device"
   connection: Ethernet
   address: mosquitto-service.devices.svc.cluster.local:18830
   protocol: MQTT

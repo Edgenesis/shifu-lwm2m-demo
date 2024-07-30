@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: deviceshifu-lwm2m
-  name: deviceshifu-lwm2m
+    app: deviceshifu-mqtt-customized
+  name: deviceshifu-mqtt-customized
   namespace: deviceshifu
 spec:
   ports:
@@ -23,5 +23,5 @@ spec:
       nodePort: 30001
       targetPort: 5684
   selector:
-    app: deviceshifu-lwm2m-deployment
+    app: deviceshifu-mqtt-customized-deployment
   type: NodePort

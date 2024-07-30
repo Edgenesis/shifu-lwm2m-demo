@@ -2,22 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: deviceshifu-lwm2m-deployment
-  name: deviceshifu-lwm2m-deployment
+    app: deviceshifu-mqtt-customized-deployment
+  name: deviceshifu-mqtt-customized-deployment
   namespace: deviceshifu
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: deviceshifu-lwm2m-deployment
+      app: deviceshifu-mqtt-customized-deployment
   template:
     metadata:
       labels:
-        app: deviceshifu-lwm2m-deployment
+        app: deviceshifu-mqtt-customized-deployment
     spec:
       containers:
         - image: edgenesis/lwm2m-demo-deviceshifu-http-mqtt-customized:nightly
-          name: deviceshifu-lwm2m
+          name: deviceshifu-mqtt
           ports:
             - containerPort: 8080
           volumeMounts:
