@@ -6,23 +6,23 @@ metadata:
 data:
 #    device name and image address
   customInstructionsPython: |
-    int: raw_value
-    string: raw_value
+    angle/x: XAngle
+    angle/y: YAngle
   driverProperties: |
     driverSku: LwM2M Device
     driverImage: lwm2m-device:v0.0.1
 #    available instructions
   instructions: |
     instructions:
-      int:
+      angle/x:
         protocolPropertyList:
           MQTTTopic: "/test/topic1"
         gatewayPropertyList:
-          ObjectId: /3442/0/120
-          DataType: int
-      string:
+          ObjectId: /3442/0/1130/0
+          DataType: float
+      angle/y:
         protocolPropertyList:
           MQTTTopic: "/test/topic1"
         gatewayPropertyList:
-          ObjectId: /3442/0/110
-          DataType: string
+          ObjectId: /3442/0/1130/1
+          DataType: float
