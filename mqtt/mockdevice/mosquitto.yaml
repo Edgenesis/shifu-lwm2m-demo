@@ -43,11 +43,11 @@ metadata:
   name: mosquitto-service
   namespace: devices
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     name: mosquitto
   ports:
     - name: mosquitto
       protocol: TCP
-      port: 31883
+      port: 1883
       targetPort: 1883
