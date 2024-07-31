@@ -19,7 +19,7 @@ spec:
       pskKey: ABC123
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to lwm2m server address
     LwM2MSettings:
       endpointName: lwm2m-device
       securityMode: DTLS

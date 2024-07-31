@@ -92,7 +92,7 @@ spec:
   ...
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to lwm2m server address
     ...
 ```
 
@@ -143,7 +143,7 @@ spec:
   ...
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to lwm2m server address
     ...
 ```
 
@@ -171,6 +171,8 @@ To create a mock MQTT device [Mosquitto](https://mosquitto.org/)(MQTT Broker):
 kubectl apply -f mqtt/mockdevice
 ```
 
+
+
 #### Config
 
 Edit the `mqtt/deviceshifu/mqtt_edgedevice.yaml` file and set it to the coap/coaps listening address of the LwM2M server:
@@ -185,7 +187,7 @@ spec:
   ...
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to lwm2m server address
     ...
 ```
 
@@ -210,7 +212,49 @@ kubectl exec -it deploy/mosquitto -n devices -- mosquitto_pub -t "/topic/channel
 kubectl delete -f mqtt/deviceshifu
 ```
 
+### Deploy MQTT Device with customized Process Function
 
+in this part we re-use the MQTT device mosquitto and deploy a new deviceShifu with a customized process function.
+
+#### Config
+
+Edit the `mqtt-customized/mqtt_edgedevice.yaml` file and set it to the coap/coaps listening address of the LwM2M server and the MQTT broker address:
+```yaml
+apiVersion: shifu.edgenesis.io/v1alpha1
+kind: EdgeDevice
+metadata:
+  name: edgedevice-mqtt
+  namespace: devices
+spec:
+  sku: "MQTT Device"
+  connection: Ethernet
+  address: mosquitto-service.devices.svc.cluster.local:31883 # edit it to MQTT broker address
+  ...
+  gatewaySettings:
+    protocol: lwm2m
+    address: leshan.eclipseprojects.io:5684 # edit it to LwM2M server address
+    ...
+```
+
+#### Deploy to k3s:
+
+```bash
+kubectl apply -f mqtt-customized
+```
+
+#### Publish MQTT Message
+
+Publish a message to the mock MQTT device using the following command:
+
+```bash
+kubectl exec -it deploy/mosquitto -n devices -- mosquitto_pub -t "/test/topic1" -m '{"xAngle":-73.08371735,"yAngle":-90}'
+```
+
+#### Remove deviceshifu with customized process function
+
+```bash
+kubectl delete -f mqtt-customized
+```
 
 ### Delete Worker Node (Optional)
 
