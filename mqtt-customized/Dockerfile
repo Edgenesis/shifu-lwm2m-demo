@@ -1,6 +1,6 @@
-FROM edgenesis/lwm2m-demo-deviceshifu-http-mqtt:nightly AS shifubase
+FROM --platform=$BUILDPLATFORM edgenesis/lwm2m-demo-deviceshifu-http-mqtt:nightly AS shifubase
 
-FROM gcr.io/distroless/python3-debian11
+FROM --platform=$BUILDPLATFORM gcr.io/distroless/python3-debian11
 
 COPY --from=shifubase /deviceshifu deviceshifu
 

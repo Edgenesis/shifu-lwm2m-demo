@@ -92,7 +92,7 @@ spec:
   ...
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to lwm2m server address
     ...
 ```
 
@@ -143,7 +143,7 @@ spec:
   ...
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to lwm2m server address
     ...
 ```
 
@@ -187,7 +187,7 @@ spec:
   ...
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to lwm2m server address
     ...
 ```
 
@@ -228,11 +228,11 @@ metadata:
 spec:
   sku: "MQTT Device"
   connection: Ethernet
-  address: mosquitto-service.devices.svc.cluster.local:18830 # edit it to mqtt broker address
+  address: mosquitto-service.devices.svc.cluster.local:31883 # edit it to MQTT broker address
   ...
   gatewaySettings:
     protocol: lwm2m
-    address: 20.64.232.107:5684 # edit it to lwm2m server address
+    address: leshan.eclipseprojects.io:5684 # edit it to LwM2M server address
     ...
 ```
 

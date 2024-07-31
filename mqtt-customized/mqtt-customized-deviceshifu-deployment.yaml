@@ -26,7 +26,7 @@ spec:
               readOnly: true
           env:
             - name: EDGEDEVICE_NAME
-              value: "edgedevice-lwm2m"
+              value: "edgedevice-mqtt-customized"
             - name: EDGEDEVICE_NAMESPACE
               value: "devices"
         - image: edgenesis/lwm2m-demo-gateway-lwm2m:nightly-20240612
@@ -37,11 +37,11 @@ spec:
               readOnly: true
           env:
             - name: EDGEDEVICE_NAME
-              value: "edgedevice-lwm2m"
+              value: "edgedevice-mqtt-customized"
             - name: EDGEDEVICE_NAMESPACE
               value: "devices"
       volumes:
         - name: deviceshifu-config
           configMap:
-            name: deviceshifu-lwm2m
+            name: deviceshifu-mqtt-customized
       serviceAccountName: edgedevice-sa

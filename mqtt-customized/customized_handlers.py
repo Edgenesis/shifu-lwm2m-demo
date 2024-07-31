@@ -4,10 +4,13 @@ import json
 # {"xAngle":-73.08371735,"yAngle":-90}
 
 
+# output
+# -73.08371735
 def XAngle(raw_data):
     return json.loads(raw_data["mqtt_message"])["xAngle"]
 
-
+# output
+# -90
 def YAngle(raw_data):
     return json.loads(raw_data["mqtt_message"])["yAngle"]
 
