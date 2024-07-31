@@ -6,7 +6,7 @@ metadata:
 spec:
   sku: "MQTT Device"
   connection: Ethernet
-  address: mosquitto-service.devices.svc.cluster.local:31883
+  address: mosquitto-service.devices.svc.cluster.local:1883
   protocol: MQTT
   protocolSettings:
   gatewaySettings:
