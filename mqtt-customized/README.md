@@ -24,5 +24,5 @@ docker save edgenesis/lwm2m-demo-deviceshifu-http-mqtt-customized:nightly | k3s 
 ### To push to Docker Hub with multiple platform support
 
 ```bash
-docker buildx build --platform=linux/amd64,linux/arm64,linux/arm -f Dockerfile . -t edgenesis/lwm2m-demo-deviceshifu-http-mqtt-customized:nightly --push
+docker buildx build --platform=linux/amd64,linux/arm64 -f Dockerfile . -t edgenesis/lwm2m-demo-deviceshifu-http-mqtt-customized:nightly --push
 ```
