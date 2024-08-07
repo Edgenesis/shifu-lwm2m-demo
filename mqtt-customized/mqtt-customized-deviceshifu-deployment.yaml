@@ -16,7 +16,7 @@ spec:
         app: deviceshifu-mqtt-customized-deployment
     spec:
       containers:
-        - image: edgenesis/lwm2m-demo-deviceshifu-http-mqtt-customized:nightly
+        - image: edgenesis/lwm2m-demo-deviceshifu-http-mqtt-customized:nightly-20240807
           name: deviceshifu-mqtt
           ports:
             - containerPort: 8080
