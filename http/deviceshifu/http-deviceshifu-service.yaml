@@ -7,9 +7,11 @@ metadata:
   namespace: deviceshifu
 spec:
   ports:
-  - port: 80
+  - name: deviceshifu
+    port: 80
     protocol: TCP
+    nodePort: 30180
     targetPort: 8080
   selector:
     app: deviceshifu-thermometer-deployment
-  type: LoadBalancer
+  type: NodePort

@@ -16,7 +16,7 @@ spec:
         app: deviceshifu-thermometer-deployment
     spec:
       containers:
-      - image: edgenesis/lwm2m-demo-deviceshifu-http-http:nightly
+      - image: edgenesis/deviceshifu-http-http-remove-not-found:v0.0.1
         name: deviceshifu-http
         ports:
         - containerPort: 8080
@@ -40,6 +40,15 @@ spec:
             value: "edgedevice-thermometer"
           - name: EDGEDEVICE_NAMESPACE
             value: "devices"
+      - image: edgenesis/http-value-stub:v0.0.1
+        name: http-stub
+        ports:
+        - containerPort: 11111
+        env:
+        - name: MOCKDEVICE_NAME
+          value: thermometer
+        - name: DEVICE_PORT
+          value: "11111"
       volumes:
       - name: deviceshifu-config
         configMap:

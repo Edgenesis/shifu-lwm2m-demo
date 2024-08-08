@@ -11,19 +11,10 @@ data:
     instructionSettings:
       defaultTimeoutSeconds: 8
     instructions:
-      status:
-        gatewayPropertyList:
-          ObjectId: /3442/0/1110/0
-          DataType: string
       value:
         gatewayPropertyList:
           ObjectId: /3442/0/1110/1
           DataType: string
+      "":
   telemetries: |
     telemetries:
-      device_health:
-        properties:
-          instruction: status
-          initialDelayMs: 1000
-          intervalMs: 1000
-
