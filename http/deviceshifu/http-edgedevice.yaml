@@ -6,7 +6,7 @@ metadata:
 spec:
   sku: "Thermometer" 
   connection: Ethernet
-  address: thermometer.devices.svc.cluster.local:11111
+  address: localhost:11111
   protocol: HTTP
   gatewaySettings:
     protocol: lwm2m
