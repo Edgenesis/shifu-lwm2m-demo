@@ -10,17 +10,17 @@ spec:
     - name: deviceshifu
       port: 80
       protocol: TCP
-      nodePort: 30080
+      nodePort: 30180
       targetPort: 8080
     - name: lwm2mserver-coap
       port: 5683
       protocol: UDP
-      nodePort: 30000
+      nodePort: 30100
       targetPort: 5683
     - name: lwm2mserver-coaps
       port: 5684
       protocol: UDP
-      nodePort: 30001
+      nodePort: 30101
       targetPort: 5684
   selector:
     app: deviceshifu-lwm2m-deployment
